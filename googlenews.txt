@@ -1,0 +1,10 @@
+{"GoogleNews":
+    [
+        {"Business" : "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx6TVdZU0FtVnVHZ0pOV1NnQVAB?hl=en-MY&gl=MY&ceid=MY%3Aen"},
+        {"World" : "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YlY4U0FtVnVHZ0pOV1NnQVAB?hl=en-MY&gl=MY&ceid=MY%3Aen"},
+        {"Malaysia" : "https://news.google.com/topics/CAAqIggKIhxDQkFTRHdvSkwyMHZNRGx3Yld0MkVnSmxiaWdBUAE?hl=en-MY&gl=MY&ceid=MY%3Aen"},
+        {"Personal Finance" : "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx6TVdZU0FtVnVHZ0pOV1NnQVAB/sections/CAQiTENCQVNNd29JTDIwdk1EbHpNV1lTQldWdUxVZENHZ0pOV1NJUENBUWFDd29KTDIwdk1ERjVObU54S2dzU0NTOXRMekF4ZVRaamNTZ0EqLggAKioICiIkQ0JBU0ZRb0lMMjB2TURsek1XWVNCV1Z1TFVkQ0dnSk5XU2dBUAFQAQ?hl=en-MY&gl=MY&ceid=MY%3Aen"},
+        {"Technology" : "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGRqTVhZU0FtVnVHZ0pOV1NnQVAB?hl=en-MY&gl=MY&ceid=MY%3Aen"},
+        {"Science" : "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRFp0Y1RjU0FtVnVHZ0pOV1NnQVAB?hl=en-MY&gl=MY&ceid=MY%3Aen"}
+    ]
+}
