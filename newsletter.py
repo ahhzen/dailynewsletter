@@ -16,10 +16,18 @@ def populate_template(news_data):
 			section_item = f"<h2> {section} </h2>"
 			news_li_html += section_item
 
+		news_img = item.get("img", "")
+		img_tag = ""
+		if len(news_img) > 0: 
+			img_tag = f"<img src='{news_img}'>"
+
 		news_url = item.get("url")
 		news_title = item.get("title")
-		news_item = f"<a href='{news_url}'> {news_title} </a>"
+		news_item = f"<a href='{news_url}'>{img_tag} {news_title} </a>"
+
+		# listitem = li.replace("IMG", img_tag)
 		listitem = li.replace("LISTITEM", news_item)
+
 		news_li_html += listitem
 
 	news_detail = {"datetime": todaynow, "news_list": news_li_html}
@@ -31,9 +39,9 @@ def populate_template(news_data):
 def send_email(news_data):
 
 	email = EmailMessage()
-	email["from"] = "senderdummy"
-	email["to"] = "recipient@email.com"
-	email["subject"] = "News Around the World NOW!"
+	email["from"] = "dummyuser"
+	email["to"] = ["dummy@yahoo.com"]
+	email["subject"] = "News Around the World NOW!!"
 
 	news_template = populate_template(news_data)
 	email.set_content(news_template,"HTML")

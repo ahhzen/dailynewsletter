@@ -4,7 +4,10 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from pprint import pprint
 import newsletter 
+import os
 
+PROJECT_NAME = "dailynewsletter"
+SOURCE_FILENAME = "googlenews.txt"
 MAX_PER_SECTION = 8
 google_news_prefix = "https://news.google.com"
 class_link = ".DY5T1d"
@@ -14,16 +17,18 @@ class_hl = ".xrnccd.F6Welf.R7GTQ.keNKEd.j7vNaf"
 class_img = ".tvs3Id.QwxBBf"
 masterlist = []
 
-def read_news_source(filename="./googlenews.txt"):
-    source = ""
-    with open(filename, "r") as file1:
-        lines = file1.readlines()
-        for line in lines:
-            source += line
+def read_news_source(filename="googlenews.txt"):
+	fullpath = os.path.join(os.path.expanduser("~"), "Documents", "Python Projects", "dailynewsletter", filename)
+	print("Opening file : ", fullpath)
 
-        file1.close()
-    
-    return json.loads(source).get("GoogleNews")
+	source = ""
+	with open(fullpath, "r") as file1:
+		lines = file1.readlines()
+		for line in lines:
+			source += line
+
+		file1.close()
+	return json.loads(source).get("GoogleNews")
 
 def get_news():
 	news_sources = read_news_source()
@@ -72,14 +77,17 @@ def get_news_data(url, section, maxhl=0):
 
 def display_new():
 	allnews = get_news()
-	newsletter.send_email(allnews)
 	
-	# for num, news in enumerate(allnews):
-	# 	print(num, end="")
-	# 	pprint(news)
-	# 	print()
+	for num, news in enumerate(allnews):
+		print(num, end="")
+		pprint(news)
+		print()
+
+def generate_newsletter():
+	allnews = get_news()
+	newsletter.send_email(allnews)
 
 if __name__ == "__main__":
-	display_new()
+	generate_newsletter()
 
 
