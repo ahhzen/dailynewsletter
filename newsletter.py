@@ -5,6 +5,10 @@ from email.message import EmailMessage
 from string import Template
 from pathlib import Path
 
+path_item = [Path().home(), "Documents", "Python Projects", "Project_Webscrapper", "news_template.html"]
+# path_item = [Path().home(), "project", "dailynewsletter", "news_template.html"]
+# path_item = [Path().home(), "project", "scrapper", "news_template.html"]
+
 li = "<li><h3>LISTITEM</h3></li>"
 def populate_template(news_data):
 	todaynow = datetime.now().strftime("%d/%m/%Y %X")
@@ -32,7 +36,12 @@ def populate_template(news_data):
 
 	news_detail = {"datetime": todaynow, "news_list": news_li_html}
 
-	news_template = Template(Path("news_template.html").read_text())
+	# news_template = Template(Path("news_template.html").read_text())
+	path_template = ""
+	for item in path_item:
+		path_template = Path(path_template, item)
+	print(f"Opening template file : {path_template}")
+	news_template = Template(path_template.read_text())
 	news_template = news_template.substitute(news_detail)
 	return news_template
 
