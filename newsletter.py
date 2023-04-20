@@ -4,9 +4,10 @@ from datetime import datetime
 from email.message import EmailMessage
 from string import Template
 from pathlib import Path
+import os
 
-path_item = [Path().home(), "Documents", "Python Projects", "Project_Webscrapper", "news_template.html"]
-# path_item = [Path().home(), "project", "dailynewsletter", "news_template.html"]
+# path_item = [Path().home(), "Documents", "Python Projects", "Project_Webscrapper", "news_template.html"]
+path_item = [Path().home(), "project", "dailynewsletter", "news_template.html"]
 # path_item = [Path().home(), "project", "scrapper", "news_template.html"]
 
 li = "<li><h3>LISTITEM</h3></li>"
@@ -48,9 +49,9 @@ def populate_template(news_data):
 def send_email(news_data):
 
 	email = EmailMessage()
-	email["from"] = "dummyuser"
-	email["to"] = ["dummy@yahoo.com"]
-	email["subject"] = "News Around the World NOW!!"
+	email["from"] = "PiZen"
+	email["to"] = os.getenv("MAIL_LIST").split(":")	
+	email["subject"] = "News Around the World NOW!"
 
 	news_template = populate_template(news_data)
 	email.set_content(news_template,"HTML")
