@@ -49,7 +49,7 @@ def populate_template(news_data):
 def send_email(news_data):
 
 	email = EmailMessage()
-	email["from"] = "PiZen"
+	email["from"] = f"{os.getlogin()} <{os.getenv('UID_EMAIL')}@gmail.com>"
 	email["to"] = os.getenv("MAIL_LIST").split(":")	
 	email["subject"] = "News Around the World NOW!"
 
@@ -61,4 +61,4 @@ def send_email(news_data):
 	    smtp.starttls()
 	    smtp.login(credential.username, credential.password)
 	    smtp.send_message(email)
-	    print("Daily News Letter is Sent")
+	    print(f"Daily News Letter is Sent by {email.get('from')}")
