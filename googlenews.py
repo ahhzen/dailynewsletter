@@ -25,6 +25,8 @@ class_hl = ".PO9Zff.Ccj79.kUVvS"
 # class_img = ".tvs3Id.QwxBBf" #19042023 ZEN
 class_img = ".K0q4G.P22Vib"
 
+class_title = ".gPFEn"
+
 masterlist = []
 
 def read_news_source(filename="googlenews.txt"):
@@ -44,7 +46,7 @@ def get_news():
 	news_sources = read_news_source()
 	masterlist = []
 	for src in news_sources:
-		for section, url in src.items():	
+		for section, url in src.items():
 			print(f"Read from {section} section")
 			masterlist.extend(get_news_data(url, section, MAX_PER_SECTION))
 	return masterlist
@@ -85,8 +87,9 @@ def get_news_data(url, section, maxhl=0):
 			dt = datetime.fromisoformat(news_time.rstrip("Z"))
 			dt = dt.strftime("%d/%m/%Y %X")
 
-			news_title = news_link.find('a').get('aria-label')
-		    
+			# news_title = news_link.find('a').get('aria-label')
+			news_title = headline.select(class_title)[0].text
+		
 			# news.update({"section": section, "title": news_link.text, "url": googlenews_link, "img": img_src, "timestamp": dt})
 			news.update({"section": section, "title": news_title, "url": googlenews_link, "img": img_src, "timestamp": dt})
 			# print(news)
