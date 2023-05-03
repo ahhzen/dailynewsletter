@@ -25,7 +25,7 @@ class_hl = ".PO9Zff.Ccj79.kUVvS"
 # class_img = ".tvs3Id.QwxBBf" #19042023 ZEN
 class_img = ".K0q4G.P22Vib"
 
-class_title = ".gPFEn"
+class_title = ".gPFEn"	#added by MBP-Zen
 
 masterlist = []
 
@@ -87,8 +87,8 @@ def get_news_data(url, section, maxhl=0):
 			dt = datetime.fromisoformat(news_time.rstrip("Z"))
 			dt = dt.strftime("%d/%m/%Y %X")
 
-			# news_title = news_link.find('a').get('aria-label')
-			news_title = headline.select(class_title)[0].text
+			# news_title = news_link.find('a').get('aria-label')	#-deleted by MBP-Zen
+			news_title = headline.select(class_title)[0].text		#+added by MBP-Zen
 		
 			# news.update({"section": section, "title": news_link.text, "url": googlenews_link, "img": img_src, "timestamp": dt})
 			news.update({"section": section, "title": news_title, "url": googlenews_link, "img": img_src, "timestamp": dt})
